@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oberża Piwiarnia – Tradycja, Smak i Gościnność</title>
+    <meta name="description" content="Oberża Piwiarnia – najlepsza golonka, pizza i kuchnia polska. Odwiedź nas i poczuj prawdziwy smak." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="https://i.ibb.co/5hhSJ9yj/305581994-601992901465373-44982949880085606-n.jpg" />
+    
+    <!-- Google Fonts: Playfair Display + Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+      /* --- CSS CUSTOM PROPERTIES (VARIABLES) --- */
+      :root {
+        --bg-cream: #FAF7F2;
+        --brown-primary: #5C3D2E;
+        --brown-deep: #3A2318;
+        --brown-mid: #8B5E3C;
+        --tan-light: #D4B896;
+        --white-warm: #FFFFFF;
+        --text-dark: #2E1E12;
+        --beige-warm: #EDE3D5;
+        --gold-accent: #B8860B;
+        --dark-footer: #2E1E12;
+
+        --font-serif: 'Playfair Display', Georgia, serif;
+        --font-body: 'Lora', STSong, serif;
+
+        --shadow-warm: 0 8px 40px rgba(92, 61, 46, 0.12);
+        --shadow-warm-hover: 0 16px 50px rgba(92, 61, 46, 0.22);
+        --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        --transition-fast: all 0.2s ease;
+      }
+
+      /* --- BASE STYLES & RESET --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--text-dark);
+        background-color: var(--bg-cream);
+        overflow-x: hidden;
+        width: 100%;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Subtle linen/parchment texture overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.02;
+        z-index: 9999;
+        pointer-events: none;
+        background-image: 
+          radial-gradient(circle, var(--text-dark) 8%, transparent 8.5%),
+          radial-gradient(circle, var(--text-dark) 8%, transparent 8.5%);
+        background-size: 6px 6px;
+        background-position: 0 0, 3px 3px;
+      }
+
+      h1, h2, h3, h4, .font-serif {
+        font-family: var(--font-serif);
+        color: var(--brown-deep);
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition-fast);
+      }
+
+      /* --- COMMON UI REUSABLES --- */
+      .section-label {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.85rem;
+        color: var(--brown-mid);
+        display: block;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--brown-deep);
+        font-weight: 700;
+      }
+
+      .ornament {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0 3rem 0;
+      }
+
+      .ornament::before, .ornament::after {
+        content: "";
+        height: 1px;
+        width: 80px;
+        background: linear-gradient(to right, transparent, var(--brown-mid), transparent);
+      }
+
+      .ornament span {
+        color: var(--gold-accent);
+        font-size: 1.1rem;
+        user-select: none;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--brown-primary);
+        color: var(--white-warm);
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 1.1rem 2.4rem;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(92, 61, 46, 0.2);
+        transition: var(--transition-smooth);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--brown-mid);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(92, 61, 46, 0.35);
+      }
+
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: var(--tan-light);
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 1rem 2.2rem;
+        border: 2px solid var(--tan-light);
+        border-radius: 2px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--tan-light);
+        color: var(--brown-deep);
+        box-shadow: 0 4px 20px rgba(212, 184, 150, 0.2);
+      }
+
+      /* --- SCROLL REVEAL ANIMATION --- */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- NAVIGATION HEADER --- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(250, 247, 242, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 2px solid rgba(92, 61, 46, 0.15);
+        transition: var(--transition-smooth);
+      }
+
+      header.scrolled {
+        box-shadow: 0 8px 25px rgba(92, 61, 46, 0.12);
+        background-color: rgba(250, 247, 242, 0.98);
+        border-bottom-color: rgba(92, 61, 46, 0.25);
+      }
+
+      .nav-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 1.25rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: var(--brown-deep);
+      }
+
+      .logo i {
+        color: var(--gold-accent);
+        font-size: 1.35rem;
+        transition: transform 0.5s ease;
+      }
+
+      .logo:hover i {
+        transform: rotate(15deg) scale(1.15);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--brown-deep);
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--brown-primary);
+        transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      /* Hamburger menu button */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        outline: none;
+        z-index: 1010;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--brown-deep);
+        transition: var(--transition-smooth);
+        transform-origin: left center;
+      }
+
+      /* --- HERO SECTION --- */
+      #hero {
+        position: relative;
+        height: 100vh;
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('https://i.ibb.co/7JS2ZzjQ/489922794-2147286152352175-6346316554595187343-n.jpg');
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color: var(--white-warm);
+        padding: 0 1.5rem;
+      }
+
+      /* Ambient overlay gradients */
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(58, 35, 24, 0.35) 0%, rgba(58, 35, 24, 0.72) 100%);
+        z-index: 1;
+      }
+
+      .hero-vignette {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, transparent 40%, rgba(30, 15, 5, 0.75) 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-label {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+        color: var(--tan-light);
+        margin-bottom: 1.25rem;
+        display: inline-block;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 7.5vw, 6.2rem);
+        font-weight: 900;
+        color: var(--white-warm);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.55), 0 2px 5px rgba(0,0,0,0.3);
+        margin-bottom: 1rem;
+      }
+
+      .hero-subtitle {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: clamp(1.1rem, 2vw, 1.55rem);
+        color: rgba(254, 252, 249, 0.95);
+        margin-bottom: 1.5rem;
+        max-width: 650px;
+        line-height: 1.4;
+      }
+
+      .hero-ornament {
+        color: var(--gold-accent);
+        font-size: 1.4rem;
+        margin-bottom: 2.25rem;
+      }
+
+      /* --- O NAS SECTION --- */
+      #o-nas {
+        padding: 8rem 2rem;
+        background-color: var(--bg-cream);
+        position: relative;
+      }
+
+      .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .two-col-layout {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 5.5rem;
+        align-items: center;
+      }
+
+      .about-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-text .section-label {
+        text-align: left;
+      }
+
+      .about-text .section-title {
+        text-align: left;
+        margin-bottom: 1.75rem;
+      }
+
+      .about-desc {
+        color: var(--text-dark);
+        font-size: 1.12rem;
+        margin-bottom: 2.5rem;
+        text-align: justify;
+      }
+
+      /* Feature/Stat Pills */
+      .feature-pills {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        width: 100%;
+      }
+
+      .feature-pill {
+        border-left: 4px solid var(--brown-primary);
+        background-color: rgba(92, 61, 46, 0.04);
+        padding: 0.9rem 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--brown-deep);
+        border-radius: 0 4px 4px 0;
+        transition: var(--transition-smooth);
+      }
+
+      .feature-pill:hover {
+        background-color: rgba(92, 61, 46, 0.08);
+        transform: translateX(5px);
+        border-left-color: var(--gold-accent);
+      }
+
+      /* Offset Frame Image Container */
+      .image-offset-wrapper {
+        position: relative;
+        padding-bottom: 12px;
+        padding-right: 12px;
+      }
+
+      .image-offset-box {
+        position: relative;
+        z-index: 2;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: var(--shadow-warm);
+        line-height: 0;
+      }
+
+      .image-offset-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 2px;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .image-offset-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: -12px;
+        bottom: -12px;
+        border: 3px solid var(--brown-primary);
+        z-index: 1;
+        pointer-events: none;
+        transition: var(--transition-smooth);
+      }
+
+      .image-offset-wrapper:hover .image-offset-box img {
+        transform: scale(1.03);
+      }
+
+      .image-offset-wrapper:hover::after {
+        transform: translate(-5px, -5px);
+        border-color: var(--gold-accent);
+      }
+
+      /* --- GALERIA SECTION --- */
+      #galeria {
+        padding: 8rem 2rem;
+        background-color: var(--beige-warm);
+        position: relative;
+      }
+
+      .gallery-grid {
+        column-count: 3;
+        column-gap: 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 16px;
+        break-inside: avoid;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: var(--shadow-warm);
+        cursor: pointer;
+        position: relative;
+        background-color: var(--brown-deep);
+        line-height: 0;
+        transition: var(--transition-smooth);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 2px;
+        transition: transform 0.5s ease, opacity 0.35s ease;
+      }
+
+      .gallery-overlay-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(58, 35, 24, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        z-index: 3;
+        transition: opacity 0.35s ease;
+      }
+
+      .gallery-overlay-icon i {
+        color: var(--white-warm);
+        font-size: 1.8rem;
+        transform: scale(0.85);
+        transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: var(--shadow-warm-hover);
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+
+      .gallery-item:hover .gallery-overlay-icon {
+        opacity: 1;
+      }
+
+      .gallery-item:hover .gallery-overlay-icon i {
+        transform: scale(1);
+      }
+
+      /* --- MENU / SPECJALNOŚCI SECTION --- */
+      #menu {
+        padding: 8rem 2rem;
+        background-color: var(--bg-cream);
+        position: relative;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.25rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .menu-card {
+        background-color: var(--white-warm);
+        border-top: 4px solid var(--brown-primary);
+        border-radius: 3px;
+        padding: 3rem 2.2rem;
+        box-shadow: var(--shadow-warm);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: var(--transition-smooth);
+        position: relative;
+      }
+
+      .menu-card-icon {
+        font-size: 2.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .menu-card-title {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 1.55rem;
+        color: var(--brown-deep);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .menu-card-desc {
+        color: var(--text-dark);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        flex-grow: 1;
+      }
+
+      .menu-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-warm-hover);
+        border-top-color: var(--gold-accent);
+      }
+
+      /* --- OPINIE (REVIEWS) SECTION --- */
+      #opinie {
+        padding: 8.5rem 2rem;
+        background-color: var(--brown-deep); /* Dark section for dramatic contrast */
+        color: var(--white-warm);
+        position: relative;
+      }
+
+      #opinie .section-label {
+        color: var(--tan-light);
+      }
+
+      #opinie .section-title {
+        color: var(--white-warm);
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.25rem;
+        max-width: 1200px;
+        margin: 0 auto 3.5rem auto;
+      }
+
+      .review-card {
+        background: rgba(255, 255, 255, 0.05); /* Subtle glass card */
+        border: 1px solid rgba(212, 184, 150, 0.22);
+        border-radius: 4px;
+        padding: 3rem 2.2rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: var(--transition-smooth);
+      }
+
+      .review-card::before {
+        content: "“";
+        font-family: var(--font-serif);
+        font-size: 5.5rem;
+        color: rgba(212, 184, 150, 0.25);
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        line-height: 1;
+      }
+
+      .review-text {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        line-height: 1.65;
+        position: relative;
+        z-index: 2;
+        flex-grow: 1;
+      }
+
+      .review-stars {
+        color: var(--gold-accent);
+        font-size: 0.95rem;
+        margin-bottom: 0.85rem;
+        letter-spacing: 2px;
+      }
+
+      .review-author {
+        font-family: var(--font-serif);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--tan-light);
+      }
+
+      .review-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(212, 184, 150, 0.45);
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      .reviews-cta-container {
+        text-align: center;
+      }
+
+      /* --- KONTAKT SECTION --- */
+      #kontakt {
+        padding: 8rem 2rem;
+        background-color: var(--bg-cream);
+        position: relative;
+      }
+
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5.5rem;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        border-left: 5px solid var(--brown-primary);
+        padding-left: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-info .section-label {
+        text-align: left;
+      }
+
+      .contact-info .section-title {
+        text-align: left;
+        margin-bottom: 2.25rem;
+      }
+
+      .contact-list {
+        list-style: none;
+        width: 100%;
+        margin-bottom: 2.5rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.1rem;
+        margin-bottom: 1.75rem;
+        font-size: 1.1rem;
+      }
+
+      .contact-bullet {
+        color: var(--gold-accent);
+        font-size: 0.9rem;
+        margin-top: 0.3rem;
+      }
+
+      .contact-text h4 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.35rem;
+        color: var(--brown-deep);
+      }
+
+      .contact-text p {
+        color: var(--text-dark);
+        line-height: 1.5;
+      }
+
+      .fb-button-wrapper {
+        margin-bottom: 2rem;
+      }
+
+      .facebook-btn {
+        background-color: var(--brown-primary);
+        color: var(--white-warm);
+        border: none;
+        border-radius: 2px;
+        padding: 1.1rem 2.2rem;
+        font-family: var(--font-serif);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.95rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: 0 4px 15px rgba(92, 61, 46, 0.2);
+        transition: var(--transition-smooth);
+      }
+
+      .facebook-btn i {
+        font-size: 1.15rem;
+      }
+
+      .facebook-btn:hover {
+        background-color: var(--brown-mid);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(92, 61, 46, 0.35);
+      }
+
+      .contact-invite {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.15rem;
+        color: var(--brown-mid);
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background-color: var(--dark-footer);
+        color: rgba(237, 227, 213, 0.8);
+        padding: 5rem 2rem 3rem 2rem;
+        text-align: center;
+        position: relative;
+        border-top: 4px solid var(--brown-primary);
+      }
+
+      .footer-logo {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--tan-light);
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+
+      .footer-divider {
+        height: 1px;
+        max-width: 300px;
+        background: linear-gradient(to right, transparent, var(--tan-light), transparent);
+        margin: 0 auto 2.5rem auto;
+        opacity: 0.3;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        list-style: none;
+        margin-bottom: 2.5rem;
+      }
+
+      .footer-links a {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--tan-light);
+      }
+
+      .footer-links a:hover {
+        color: var(--white-warm);
+        text-shadow: 0 0 10px rgba(212, 184, 150, 0.4);
+      }
+
+      .footer-copy {
+        font-size: 0.85rem;
+        color: rgba(237, 227, 213, 0.5);
+        letter-spacing: 0.05em;
+      }
+
+      /* --- LIGHTBOX STYLING --- */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(30, 15, 5, 0.94);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+
+      .lightbox.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lightbox-img {
+        max-width: 90%;
+        max-height: 82%;
+        border-radius: 3px;
+        box-shadow: 0 12px 50px rgba(0, 0, 0, 0.85);
+        transform: scale(0.94);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 2px solid rgba(212, 184, 150, 0.4);
+      }
+
+      .lightbox.active .lightbox-img {
+        transform: scale(1);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: var(--tan-light);
+        font-size: 3.5rem;
+        line-height: 1;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        user-select: none;
+      }
+
+      .lightbox-close:hover {
+        color: var(--white-warm);
+        transform: scale(1.15);
+      }
+
+      /* --- RESPONSIVELAYOUTS (MEDIA QUERIES) --- */
+      @media (max-width: 1100px) {
+        .nav-links {
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 280px;
+          height: 100vh;
+          height: 100dvh;
+          background-color: var(--bg-cream);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2.5rem;
+          padding: 2rem;
+          z-index: 1005;
+          box-shadow: -10px 0 35px rgba(92, 61, 46, 0.15);
+          transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+          border-left: 3px solid var(--brown-primary);
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        /* Hamburger Animation */
+        .hamburger.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .two-col-layout {
+          grid-template-columns: 1fr;
+          gap: 4rem;
+        }
+
+        .about-text .section-label,
+        .about-text .section-title,
+        .contact-info .section-label,
+        .contact-info .section-title {
+          text-align: center;
+          align-self: center;
+        }
+
+        .about-text, .contact-info {
+          align-items: center;
+        }
+
+        .contact-info {
+          border-left: none;
+          padding-left: 0;
+        }
+
+        .contact-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .contact-item {
+          text-align: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .image-offset-wrapper {
+          max-width: 550px;
+          margin: 0 auto;
+        }
+
+        .menu-grid,
+        .reviews-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.75rem;
+        }
+
+        .contact-layout {
+          grid-template-columns: 1fr;
+          gap: 4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #o-nas, #galeria, #menu, #opinie, #kontakt {
+          padding: 5.5rem 1.25rem;
+        }
+
+        .menu-grid,
+        .reviews-grid {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+        }
+
+        .review-card {
+          padding: 2.5rem 1.8rem;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 1.25rem;
+        }
+
+        .lightbox-close {
+          top: 20px;
+          right: 25px;
+          font-size: 2.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVIGATION HEADER -->
+    <header id="main-header">
+      <div class="nav-container">
+        <a href="#hero" class="logo">
+          <i class="fa-solid fa-beer-mug-empty"></i>
+          <span>Oberża Piwiarnia</span>
+        </a>
+
+        <button class="hamburger" id="hamburger-menu" aria-label="Otwórz menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#o-nas">O Nas</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#opinie">Opinie</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-vignette"></div>
+      
+      <div class="hero-content">
+        <span class="hero-label">Tradycja · Smak · Gościnność</span>
+        
+        <h1 class="hero-title">Oberża Piwiarnia</h1>
+        
+        <div class="hero-ornament">✦</div>
+        
+        <p class="hero-subtitle">Prawdziwy smak, prawdziwe chwile</p>
+        
+        <a href="#o-nas" class="btn-primary" style="margin-top: 1rem;">Odwiedź nas</a>
+      </div>
+    </section>
+
+    <!-- O NAS SECTION -->
+    <section id="o-nas">
+      <div class="section-container two-col-layout">
+        
+        <div class="about-text scroll-reveal">
+          <span class="section-label">NASZA HISTORIA</span>
+          <h2 class="section-title">Miejsce, gdzie smak mówi sam za siebie</h2>
+          
+          <div class="ornament" style="justify-content: flex-start; margin: 1rem 0 2rem 0; width: 100%;"><span>✦</span></div>
+          
+          <p class="about-desc">
+            W naszej klimatycznej karczmie łączymy wielopokoleniowe, polskie przepisy z pasją do doskonałego piwa rzemieślniczego. Stworzyliśmy autentyczną przestrzeń, która tętni domową atmosferą i przyciąga miłośników najwyższej jakości tradycyjnego jedzenia. Słyniemy z niezrównanej golonki przyrządzanej według sekretnej receptury oraz wyjątkowo chrupiącej pizzy przygotowywanej wyłącznie ze starannie selekcjonowanych, świeżych składników. Odwiedź nas, by poczuć prawdziwą gościnność i spróbować potraw przygotowywanych prosto z serca.
+          </p>
+          
+          <div class="feature-pills">
+            <div class="feature-pill">
+              <span>🍖</span> Kultowa Golonka
+            </div>
+            <div class="feature-pill">
+              <span>🍕</span> Najlepsza Pizza w okolicy
+            </div>
+            <div class="feature-pill">
+              <span>🍺</span> Szeroki Wybór Piw
+            </div>
+          </div>
+        </div>
+        
+        <div class="image-offset-wrapper scroll-reveal">
+          <div class="image-offset-box">
+            <img src="https://i.ibb.co/TqnyLqY3/489489602-2147286419018815-3466296267540767632-n.jpg" alt="Tradycyjne dania w Oberży" referrerPolicy="no-referrer" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALERIA SECTION -->
+    <section id="galeria">
+      <div class="section-container">
+        <span class="section-label">WNĘTRZE I JEDZENIE</span>
+        <h2 class="section-title">Galeria</h2>
+        
+        <div class="ornament"><span>✦</span></div>
+        
+        <div class="gallery-grid scroll-reveal">
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/vvVGjL9B/489911106-2147286622352128-524351640453572700-n.jpg" alt="Smakowite potrawy Oberży" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/yLrwqTK/29067127-428642627549878-7766129911525277696-n.jpg" alt="Klimatyczne wnętrze piwiarni" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/zWyJtJg6/28959378-428653747548766-5406077457189044224-n.jpg" alt="Doskonałe polskie danie" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/pjnWSg3H/29027719-428656410881833-8498340819525173248-n.jpg" alt="Rodzinna atmosfera" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/fY1c7F97/699105858-1521411939523460-2347807903149562555-n.jpg" alt="Wyśmienity deser" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <!-- Gallery Item 6 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/7JS2ZzjQ/489922794-2147286152352175-6346316554595187343-n.jpg" alt="Oberża z profilu" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <!-- Gallery Item 7 -->
+          <div class="gallery-item">
+            <img src="https://i.ibb.co/TqnyLqY3/489489602-2147286419018815-3466296267540767632-n.jpg" alt="Nasze menu w obiektywie" referrerPolicy="no-referrer" />
+            <div class="gallery-overlay-icon">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU / SPECJALNOŚCI SECTION -->
+    <section id="menu">
+      <div class="section-container">
+        <span class="section-label">CO POLECAMY</span>
+        <h2 class="section-title">Nasze Specjalności</h2>
+        
+        <div class="ornament"><span>✦</span></div>
+        
+        <div class="menu-grid scroll-reveal">
+          <!-- Card 1 -->
+          <div class="menu-card">
+            <div class="menu-card-icon">🍖</div>
+            <h3 class="menu-card-title">Golonka</h3>
+            <p class="menu-card-desc">Najlepsza golonka jaką w życiu jadłeś — tradycyjny przepis, doskonałe wykonanie.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="menu-card">
+            <div class="menu-card-icon">🍕</div>
+            <h3 class="menu-card-title">Pizza</h3>
+            <p class="menu-card-desc">Chrupiące ciasto, świeże składniki, wyjątkowy smak — polecana przez naszych gości.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="menu-card">
+            <div class="menu-card-icon">🥘</div>
+            <h3 class="menu-card-title">Kuchnia Polska</h3>
+            <p class="menu-card-desc">Domowe smaki, sezonowe składniki, porcje, które naprawdę sycą.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPINIE SECTION -->
+    <section id="opinie">
+      <div class="section-container">
+        <span class="section-label">OPINIE GOŚCI</span>
+        <h2 class="section-title">Co mówią nasi goście</h2>
+        
+        <div class="ornament"><span>✦</span></div>
+        
+        <div class="reviews-grid scroll-reveal">
+          <!-- Review 1 -->
+          <div class="review-card">
+            <p class="review-text">Najlepsza golonka jaką w życiu jadłem.</p>
+            <div class="review-stars">★★★★★</div>
+            <span class="review-author">— Gość Oberży</span>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <p class="review-text">Najlepsza pizza w Chełmie z najbardziej profesjonalną obsługą klienta.</p>
+            <div class="review-stars">★★★★★</div>
+            <span class="review-author">— Gość Oberży</span>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <p class="review-text">Świetne miejsce miła atmosfera właściciele bardzo mili a jedzenie mistrzostwo polecam ;)</p>
+            <div class="review-stars">★★★★★</div>
+            <span class="review-author">— Gość Oberży</span>
+          </div>
+        </div>
+
+        <div class="reviews-cta-container scroll-reveal">
+          <a href="https://www.facebook.com/profile.php?id=100049640066438&sk=reviews" target="_blank" rel="noopener noreferrer" class="btn-outline">
+            Zobacz wszystkie opinie
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT SECTION -->
+    <section id="kontakt">
+      <div class="section-container contact-layout">
+        
+        <div class="contact-info scroll-reveal">
+          <span class="section-label">ZNAJDŹ NAS</span>
+          <h2 class="section-title">Kontakt</h2>
+          
+          <div class="ornament" style="justify-content: flex-start; margin: 0.5rem 0 2.5rem 0; width: 100%;"><span>✦</span></div>
+          
+          <ul class="contact-list">
+            <li class="contact-item">
+              <span class="contact-bullet">✦</span>
+              <div class="contact-text">
+                <h4>Adres Oberży</h4>
+                <p>Chełm, Polska</p>
+              </div>
+            </li>
+            
+            <li class="contact-item">
+              <span class="contact-bullet">✦</span>
+              <div class="contact-text">
+                <h4>Godziny otwarcia</h4>
+                <p>Poniedziałek – Niedziela: 12:00 – do ostatniego gościa</p>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <span class="contact-bullet">✦</span>
+              <div class="contact-text">
+                <h4>Rezerwacje telefoniczne</h4>
+                <p>Zadzwoń do nas, aby zarezerwować najlepszy stolik</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="fb-button-wrapper">
+            <a href="https://www.facebook.com/profile.php?id=100049640066438" target="_blank" rel="noopener noreferrer" class="facebook-btn">
+              <i class="fa-brands fa-facebook-f"></i> Odwiedź nasz Facebook
+            </a>
+          </div>
+
+          <p class="contact-invite">Zapraszamy serdecznie — drzwi zawsze otwarte.</p>
+        </div>
+
+        <!-- Offset Photo Frame Right -->
+        <div class="image-offset-wrapper scroll-reveal">
+          <div class="image-offset-box">
+            <img src="https://i.ibb.co/vvVGjL9B/489911106-2147286622352128-524351640453572700-n.jpg" alt="Gościnność w Oberży Piwiarni" referrerPolicy="no-referrer" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="section-container">
+        <span class="footer-logo">Oberża Piwiarnia</span>
+        <div class="footer-divider"></div>
+        
+        <ul class="footer-links">
+          <li><a href="#o-nas">O Nas</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#opinie">Opinie</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+
+        <p class="footer-copy">
+          &copy; 2026 Oberża Piwiarnia &middot; Wszelkie prawa zastrzeżone
+        </p>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="gallery-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie">
+      <span class="lightbox-close" id="lightbox-close-btn">&times;</span>
+      <img class="lightbox-img" id="lightbox-img-content" src="" alt="Powiększone zdjęcie z galerii" referrerPolicy="no-referrer" />
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        // --- 1. FIXED HEADER SHADOW STYLING ON SCROLL ---
+        const header = document.getElementById('main-header');
+        const handleScroll = () => {
+          if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+
+
+        // --- 2. MOBILE RESPONSIVE HAMBURGER BAR ---
+        const hamburgerBtn = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const toggleMenu = () => {
+          const isActive = hamburgerBtn.classList.toggle('active');
+          navMenu.classList.toggle('active', isActive);
+          document.body.style.overflow = isActive ? 'hidden' : '';
+        };
+
+        const closeMenu = () => {
+          hamburgerBtn.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            closeMenu();
+          });
+        });
+
+        // Close mobile drawer when resizing beyond mobile breakpoint
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 991) {
+            closeMenu();
+          }
+        });
+
+
+        // --- 3. ACTIVE NAVIGATION LINK ON SCROLL ---
+        const sections = document.querySelectorAll('section');
+        const navLinkEls = document.querySelectorAll('.nav-links a');
+
+        const highlightNav = () => {
+          let currentSectionId = '';
+          const scrollPos = window.scrollY + 120; // offset of navigation bar height
+
+          sections.forEach(sec => {
+            const top = sec.offsetTop;
+            const height = sec.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+              currentSectionId = sec.getAttribute('id');
+            }
+          });
+
+          navLinkEls.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        };
+        window.addEventListener('scroll', highlightNav);
+        highlightNav();
+
+
+        // --- 4. SCROLL REVEAL (INTERSECTION OBSERVER) ---
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        
+        if ('IntersectionObserver' in window) {
+          const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+          };
+
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                obs.unobserve(entry.target); // Reveal once
+              }
+            });
+          }, observerOptions);
+
+          revealElements.forEach(el => observer.observe(el));
+        } else {
+          // Fallback if IntersectionObserver is unsupported
+          revealElements.forEach(el => el.classList.add('revealed'));
+        }
+
+
+        // --- 5. LIGHTBOX FUNCTIONALITY FOR GALLERY ---
+        const lightbox = document.getElementById('gallery-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img-content');
+        const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        galleryItems.forEach(item => {
+          item.addEventListener('click', () => {
+            const clickedImg = item.querySelector('img');
+            if (clickedImg) {
+              const src = clickedImg.getAttribute('src');
+              const alt = clickedImg.getAttribute('alt');
+              lightboxImg.setAttribute('src', src);
+              lightboxImg.setAttribute('alt', alt);
+              lightbox.classList.add('active');
+              document.body.style.overflow = 'hidden'; // Lock background scroll
+            }
+          });
+        });
+
+        const closeLightbox = () => {
+          lightbox.classList.remove('active');
+          if (!navMenu.classList.contains('active')) {
+            document.body.style.overflow = '';
+          }
+        };
+
+        lightboxCloseBtn.addEventListener('click', closeLightbox);
+        
+        // Close on clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+          }
+        });
+
+      });
+    </script>
+  </body>
+</html>
